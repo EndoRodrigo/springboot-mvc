@@ -1,6 +1,6 @@
 package com.andres.springboot.springmvc.app.services;
 
-import com.andres.springboot.springmvc.app.entities.User;
+import com.andres.springboot.springmvc.app.entities.Customer;
 import com.andres.springboot.springmvc.app.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,19 +19,19 @@ public class UserServiceImpl implements UserService {
 
     @Transactional(readOnly = true)
     @Override
-    public List<User> findAll() {
-        return (List<User>) this.repository.findAll();
+    public List<Customer> findAll() {
+        return (List<Customer>) this.repository.findAll();
     }
 
     @Transactional(readOnly = true)
     @Override
-    public Optional<User> findById(Long id) {
+    public Optional<Customer> findById(Long id) {
         return repository.findById(id);
     }
 
     @Transactional
     @Override
-    public User save(User user) {
+    public Customer save(Customer user) {
         return repository.save(user);
     }
 

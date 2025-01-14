@@ -1,6 +1,6 @@
 package com.andres.springboot.springmvc.app.controllers;
 
-import com.andres.springboot.springmvc.app.entities.User;
+import com.andres.springboot.springmvc.app.entities.Customer;
 import com.andres.springboot.springmvc.app.services.UserService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -23,31 +23,25 @@ public class UserController {
         this.service = service;
     }
 
-    @GetMapping({"/view", "/another"})
-    public String viewData(Model model) {
-        model.addAttribute("title", "Hola Mundo Spring Boot!!!");
-        model.addAttribute("message", "Esta es una aplicación de ejemplo usando Spring Boot!!!");
-        model.addAttribute("user", new User("Andres", "Guzman"));
-        return "view";
-    }
-
+    //Clase princiapl carga primero la informacion de consulta
     @GetMapping
     public String list(Model model) {
-        model.addAttribute("title", "Listado de usuarios");
+        model.addAttribute("title", "Listado de facturas generadas");
         model.addAttribute("users", service.findAll());
         return "list";
     }
 
+    // Clase secundaria se usan al crear una factura nueva
     @GetMapping("/form")
     public String form(Model model) {
-        model.addAttribute("user", new User());
-        model.addAttribute("title", "Crear Usuario");
+        model.addAttribute("user", new Customer());
+        model.addAttribute("title", "Emitir una nueva factura");
         return "form";
     }
 
     @GetMapping("/form/{id}")
     public String form(@PathVariable Long id, Model model, RedirectAttributes redirect) {
-        Optional<User> optionalUser = service.findById(id);
+        Optional<Customer> optionalUser = service.findById(id);
         if (optionalUser.isPresent()) {
             model.addAttribute("user", optionalUser.get());
             model.addAttribute("title", "Editar Usuario");
@@ -63,7 +57,7 @@ public class UserController {
     }
 
     @PostMapping
-    public String form(@Valid User user, BindingResult result, Model model, RedirectAttributes redirect, SessionStatus status) {
+    public String form(@Valid Customer user, BindingResult result, Model model, RedirectAttributes redirect, SessionStatus status) {
 
         if(result.hasErrors()){
             model.addAttribute("title", "Validando Formulario");
@@ -83,7 +77,7 @@ public class UserController {
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id, RedirectAttributes redirect) {
-        Optional<User> optionalUser = service.findById(id);
+        Optional<Customer> optionalUser = service.findById(id);
         if (optionalUser.isPresent()) {
             redirect.addFlashAttribute("success", "El usuario " +
                     optionalUser.get().getName() +
