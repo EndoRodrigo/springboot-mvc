@@ -67,47 +67,69 @@
     <hr class="my-4">
     <div class="row gy-3">
       <div class="col-md-6">
-        <label for="name" class="col-sm-6 col-form-label">Nombre</label>
+        <label for="name" class="col-sm-6 col-form-label">Tipo de documento</label>
         <div class="col-sm-8">
-          <input type="text" th:field="*{name}" id="name" class="form-control"/>
-          <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="form-text text-danger"></small>
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Selecione...</option>
+            <option value="3">Cédula de ciudadanía</option>
+            <option value="5">Cédula de extranjería</option>
+          </select>
         </div>
-  
       </div>
       <div class="col-md-6">
-        <label for="lastname" class="col-sm-6 col-form-label">Apellido</label>
+        <label for="lastname" class="col-sm-6 col-form-label">Numero de documento</label>
         <div class="col-sm-8">
           <input type="text" th:field="*{lastname}" id="lastname" class="form-control"/>
           <small th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}" class="form-text text-danger"></small>
         </div>
       </div>
       <div class="col-md-6">
-        <label for="email" class="col-sm-6 col-form-label">Email</label>
+        <label for="email" class="col-sm-6 col-form-label">Nombre completo</label>
         <div class="col-sm-8">
           <input type="text" th:field="*{email}" id="email" class="form-control" />
           <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="form-text text-danger"></small>
         </div>
       </div>
       <div class="col-md-6">
-        <label for="username" class="col-sm-6 col-form-label">Username</label>
+        <label for="username" class="col-sm-6 col-form-label">Tipo de organizacion</label>
         <div class="col-sm-8">
-          <input type="text" th:field="*{username}" id="username" class="form-control"/>
-          <small th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="form-text text-danger"></small>
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Selecione...</option>
+            <option value="1">Persona Jurídica</option>
+            <option value="2">Persona Natural</option>
+          </select>
         </div>
       </div>
       <div class="col-md-6">
-        <label for="password" class="col-sm-6 col-form-label">Password</label>
+        <label for="password" class="col-sm-6 col-form-label">Tipo de tributacion</label>
         <div class="col-sm-8">
-          <input type="password" th:field="*{password}" id="password" class="form-control"/>
-          <small th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="form-text text-danger"></small>
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Selecione...</option>
+            <option value="18">IVA</option>
+            <option value="21">No aplica</option>
+          </select>
         </div>
       </div>
       <div class="col-md-6">
+        <label for="password" class="col-sm-6 col-form-label">Tipo de tributacion</label>
         <div class="col-sm-8">
-          <input type="submit" th:value="${(user.id != null && user.id > 0)? 'Editar': 'Crear'}"
-          class="btn btn-success">
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Selecione...</option>
+            <option value="18">IVA</option>
+            <option value="21">No aplica</option>
+          </select>
         </div>
       </div>
+      <div class="col-md-6">
+        <label for="password" class="col-sm-6 col-form-label">Municipio</label>
+        <div class="col-sm-8">
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Selecione...</option>
+            <option value="11001">Bogota- D.c.</option>
+          </select>
+        </div>
+      </div>
+      
     </div>
     <hr class="my-4">
     <h4>Datos de los articulos</h4>
