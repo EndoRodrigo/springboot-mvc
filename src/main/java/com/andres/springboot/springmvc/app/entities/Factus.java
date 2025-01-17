@@ -11,10 +11,10 @@ import lombok.Data;
 public class Factus {
 
     //id unico de la facturacion
-    private int numberingRangeId;
+    private int numbering_range_id;
 
     // numero unico de la factura
-    private String referenceCode;
+    private String reference_code;
 
     // este campo puede ir vacio
     private String observation;
