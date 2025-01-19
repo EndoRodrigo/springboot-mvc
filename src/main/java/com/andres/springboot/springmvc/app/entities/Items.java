@@ -1,5 +1,6 @@
 package com.andres.springboot.springmvc.app.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Data;
@@ -16,5 +17,5 @@ public class Items {
     private Integer standard_code_id;
     private Integer is_excluded;
     private Integer tribute_id;
-    private List<Withholding_Taxes> texes;
+    private List<Withholding_Taxes> Withholding_Taxes = new ArrayList<>();
 }

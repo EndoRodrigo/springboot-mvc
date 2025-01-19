@@ -15,29 +15,26 @@
     <h3 th:text="${title}"></h3>
 
     <a th:href="@{/factus/form}" th:text="'crear user (+)'" class="btn btn-secondary"></a>
-    <div th:text="'no hay facturas en el sistema!'" th:if="${#lists.isEmpty(users)}"></div>
-    <table class="table table-hover table-striped" th:if="${not #lists.isEmpty(users)}">
+    <div th:text="'no hay facturas en el sistema!'" th:if="${#lists.isEmpty(data)}"></div>
+    <table class="table table-hover table-striped" th:if="${not #lists.isEmpty(data)}">
         <thead>
         <tr>
             <th>id</th>
-            <th>name</th>
-            <th>lastname</th>
-            <th>email</th>
-            <th>created at</th>
-            <th>edit</th>
-            <th>remove</th>
+            <th>Numero</th>
+            <th>Referencia</th>
+            <th>Fecha</th>
+            <th>Total</th>
+            <th>DIAN</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="user: ${users}">
-            <td th:text="${user.id}"></td>
-            <td th:text="${user.name}"></td>
-            <td th:text="${user.lastname}"></td>
-            <td th:text="${user.email}"></td>
-            <td th:text="${user.createdAt}"></td>
-            <td><a class="btn btn-sm btn-primary" th:href="@{/users/form/} + ${user.id}">edit</a></td>
-            <td><a class="btn btn-sm btn-danger" th:href="@{/users/delete/} + ${user.id}"
-            onclick="return confirm('esta seguro que desea eliminar?')">delete</a></td>
+        <tr>
+            <td th:text="${data.getId()}"></td>
+            <td th:text="${data.getNumber()}"></td>
+            <td th:text="${data.getReference_code()}"></td>
+            <td th:text="${data.getValidated()}"></td>
+            <td th:text="${data.getTotal()}"></td>
+            <td><a class="btn btn-sm btn-primary" th:href="${data.getQr()}" target="_blank">Consultar</a></td>
         </tr>
         </tbody>
     </table>

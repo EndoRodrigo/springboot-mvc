@@ -49,254 +49,232 @@
                            class="form-text text-danger"></small>
                 </div>
             </div>
-
-            <div class="col-md-6">
-                <label for="startdate" class="col-sm-6 col-form-label">Fecha de inicio de facturación</label>
-                <div class="col-sm-8">
-                    <input type="date" th:field="*{start_date}" id="startdate" class="form-control"/>
-                    <small th:if="${#fields.hasErrors('start_date')}" th:errors="*{start_date}"
-                           class="form-text text-danger"></small>
+            <hr class="my-4">
+            <h4>Datos del cliente</h4>
+            <hr class="my-4">
+            <div class="row gy-3">
+                <div class="col-md-6">
+                    <label class="col-sm-6 col-form-label">Tipo de documento</label>
+                    <div class="col-sm-8">
+                        <select th:field="*{customer.identification_document_id}" class="form-select"
+                                aria-label="Default select example">
+                            <option value="" selected>Seleccione</option>
+                            <option value="3">Cédula de ciudadanía</option>
+                            <option value="5">Cédula de extranjería</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-md-6">
-                <label for="enddate" class="col-sm-6 col-form-label">Fecha de final de facturación</label>
-                <div class="col-sm-8">
-                    <input type="date" th:field="*{end_date}" id="enddate" class="form-control"/>
-                    <small th:if="${#fields.hasErrors('end_date')}" th:errors="*{end_date}"
-                           class="form-text text-danger"></small>
+                <div class="col-md-6">
+                    <label for="numerodocumento" class="col-sm-6 col-form-label">Número de documento</label>
+                    <div class="col-sm-8">
+                        <input type="text" th:field="*{customer.identification}" id="numerodocumento"
+                               class="form-control"/>
+                        <small th:if="${#fields.hasErrors('customer.identification')}"
+                               th:errors="*{customer.identification}" class="form-text text-danger"></small>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-md-6">
-                <label for="endtime" class="col-sm-6 col-form-label">Hora de facturación</label>
-                <div class="col-sm-8">
-                    <input type="time" th:field="*{end_time}" id="endtime" class="form-control"/>
-                    <small th:if="${#fields.hasErrors('end_time')}" th:errors="*{end_time}"
-                           class="form-text text-danger"></small>
+                <div class="col-md-6">
+                    <label for="nombre_completo" class="col-sm-6 col-form-label">Nombre completo</label>
+                    <div class="col-sm-8">
+                        <input type="text" th:field="*{customer.names}" id="nombre_completo" class="form-control"/>
+                        <small th:if="${#fields.hasErrors('customer.names')}" th:errors="*{customer.names}"
+                               class="form-text text-danger"></small>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <hr class="my-4">
-        <h4>Datos del cliente</h4>
-        <hr class="my-4">
-        <div class="row gy-3">
-            <div class="col-md-6">
-                <label class="col-sm-6 col-form-label">Tipo de documento</label>
-                <div class="col-sm-8">
-                    <select th:field="*{customer.identification_document_id}" class="form-select" aria-label="Default select example">
-                        <option value="" selected>Seleccione</option>
-                        <option value="3">Cédula de ciudadanía</option>
-                        <option value="5">Cédula de extranjería</option>
-                    </select>
+                <div class="col-md-6">
+                    <label class="col-sm-6 col-form-label">Tipo de organización</label>
+                    <div class="col-sm-8">
+                        <select th:field="*{customer.legal_organization_id}" class="form-select"
+                                aria-label="Default select example">
+                            <option value="0" selected>Seleccione</option>
+                            <option value="1">Persona Jurídica</option>
+                            <option value="2">Persona Natural</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-md-6">
-                <label for="numerodocumento" class="col-sm-6 col-form-label">Número de documento</label>
-                <div class="col-sm-8">
-                    <input type="text" th:field="*{customer.identification}" id="numerodocumento" class="form-control"/>
-                    <small th:if="${#fields.hasErrors('customer.identification')}"
-                           th:errors="*{customer.identification}" class="form-text text-danger"></small>
+                <div class="col-md-6">
+                    <label class="col-sm-6 col-form-label">Tipo de tributación</label>
+                    <div class="col-sm-8">
+                        <select th:field="*{customer.tribute_id}" class="form-select"
+                                aria-label="Default select example">
+                            <option value="0">Seleccione</option>
+                            <option value="18">IVA</option>
+                            <option value="21">No aplica</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-md-6">
-                <label for="nombre_completo" class="col-sm-6 col-form-label">Nombre completo</label>
-                <div class="col-sm-8">
-                    <input type="text" th:field="*{customer.names}" id="nombre_completo" class="form-control"/>
-                    <small th:if="${#fields.hasErrors('customer.names')}" th:errors="*{customer.names}"
-                           class="form-text text-danger"></small>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <label class="col-sm-6 col-form-label">Tipo de organización</label>
-                <div class="col-sm-8">
-                    <select th:field="*{customer.legal_organization_id}" class="form-select"
-                            aria-label="Default select example">
-                        <option value="0" selected>Seleccione</option>
-                        <option value="1">Persona Jurídica</option>
-                        <option value="2">Persona Natural</option>
-                    </select>
+                <div class="col-md-6">
+                    <label class="col-sm-6 col-form-label">Municipio</label>
+                    <div class="col-sm-8">
+                        <select th:field="*{customer.municipality_id}" class="form-select"
+                                aria-label="Default select example">
+                            <option value="0" selected>Seleccione</option>
+                            <option value="169">Bogotá - D.C.</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-6">
-                <label class="col-sm-6 col-form-label">Tipo de tributación</label>
-                <div class="col-sm-8">
-                    <select th:field="*{customer.tribute_id}" class="form-select" aria-label="Default select example">
-                        <option value="0">Seleccione</option>
-                        <option value="18">IVA</option>
-                        <option value="21">No aplica</option>
-                    </select>
+            <hr class="my-4">
+            <h4>Datos de los artículos</h4>
+            <hr class="my-4">
+            <div class="row gy-3">
+                <div class="col-md-6">
+                    <label class="col-sm-6 col-form-label">Codigo de producto</label>
+                    <div class="col-sm-8">
+                        <select th:field="*{items[0].code_reference}" class="form-select"
+                                aria-label="Default select example">
+                            <option value="" selected>Seleccione</option>
+                            <option th:value="'990001'">990001</option>
+                            <option th:value="'990002'">990001</option>
+                            <option th:value="'990003'">990001</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label class="col-sm-6 col-form-label">Artículo</label>
+                    <div class="col-sm-8">
+                        <select th:field="*{items[0].name}" class="form-select" aria-label="Default select example">
+                            <option value="" selected>Seleccione</option>
+                            <option th:value="'Pantalla de ultra pl'">Pantalla de 45 pl</option>
+                            <option th:value="'Mause inalámbrico'">Mause inalámbrico</option>
+                            <option th:value="'Teclado ergonómico'">Teclado ergonómico</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label class="col-sm-6 col-form-label">Cantidad</label>
+                    <div class="col-sm-8">
+                        <select th:field="*{items[0].quantity}" class="form-select" aria-label="Default select example">
+                            <option value="" selected>Seleccione</option>
+                            <option th:value="1">1</option>
+                            <option th:value="2">2</option>
+                            <option th:value="3">3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="descuento" class="col-sm-6 col-form-label">Descuento</label>
+                    <div class="col-sm-8">
+                        <input type="number" th:field="*{items[0].discount_rate}" id="descuento" class="form-control"/>
+                        <small th:if="${#fields.hasErrors('items[0].discount_rate')}"
+                               th:errors="*{items[0].discount_rate}"
+                               class="form-text text-danger"></small>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="precio" class="col-sm-6 col-form-label">Precio</label>
+                    <div class="col-sm-8">
+                        <input type="number" th:field="*{items[0].price}" id="precio" class="form-control"/>
+                        <small th:if="${#fields.hasErrors('items[0].price')}" th:errors="*{items[0].price}"
+                               class="form-text text-danger"></small>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="col-sm-6 col-form-label">Impuesto %</label>
+                    <div class="col-sm-8">
+                        <select th:field="*{items[0].tax_rate}" class="form-select" aria-label="Default select example">
+                            <option value="" selected>Seleccione</option>
+                            <option value="19">19 %</option>
+                            <option value="5">5 %</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="col-sm-6 col-form-label">Medida Item</label>
+                    <div class="col-sm-8">
+                        <select th:field="*{items[0].unit_measure_id}" class="form-select"
+                                aria-label="Default select example">
+                            <option value="" selected>Seleccione</option>
+                            <option value="70">Unidad</option>
+                            <option value="414">Kilogramo</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="col-sm-6 col-form-label">Estándar</label>
+                    <div class="col-sm-8">
+                        <select th:field="*{items[0].standard_code_id}" class="form-select"
+                                aria-label="Default select example">
+                            <option value="" selected>Seleccione</option>
+                            <option value="1">Estándar de adopción del contribuyente</option>
+                            <option value="2">UNSPSC</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="col-sm-6 col-form-label">Excluido de IVA</label>
+                    <div class="col-sm-8">
+                        <select th:field="*{items[0].is_excluded}" class="form-select"
+                                aria-label="Default select example">
+                            <option value="" selected>Seleccione</option>
+                            <option value="1">SI</option>
+                            <option value="0">NO</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="col-sm-6 col-form-label">Retención</label>
+                    <div class="col-sm-8">
+                        <select th:field="*{items[0].tribute_id}" class="form-select"
+                                aria-label="Default select example">
+                            <option value="" selected>Seleccione</option>
+                            <option value="1">IVA - Impuesto sobre la Ventas</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="col-sm-6 col-form-label">Verificar informacion de la facturacion</label>
+                    <div class="col-sm-8">
+                        <input type="submit" value="Agregar" class="form-control"/>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-6">
-                <label class="col-sm-6 col-form-label">Municipio</label>
-                <div class="col-sm-8">
-                    <select th:field="*{customer.municipality_id}" class="form-select"
-                            aria-label="Default select example">
-                        <option value="0" selected>Seleccione</option>
-                        <option value="169">Bogotá - D.C.</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <hr class="my-4">
-        <h4>Datos de los artículos</h4>
-        <hr class="my-4">
-        <div class="row gy-3">
-            <div class="col-md-6">
-                <label class="col-sm-6 col-form-label">Codigo de producto</label>
-                <div class="col-sm-8">
-                    <select th:field="*{items[0].code_reference}" class="form-select" aria-label="Default select example">
-                        <option value="" selected>Seleccione</option>
-                        <option th:value="990001" >990001</option>
-                        <option th:value="990002" >990001</option>
-                        <option th:value="990003" >990001</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <label class="col-sm-6 col-form-label">Artículo</label>
-                <div class="col-sm-8">
-                    <select th:field="*{items[0].name}" class="form-select" aria-label="Default select example">
-                        <option value="" selected>Seleccione</option>
-                        <option th:value="'Pantalla de ultra pl'">Pantalla de 45 pl</option>
-                        <option th:value="'Mause inalámbrico'">Mause inalámbrico</option>
-                        <option th:value="'Teclado ergonómico'">Teclado ergonómico</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <label class="col-sm-6 col-form-label">Cantidad</label>
-                <div class="col-sm-8">
-                    <select th:field="*{items[0].quantity}" class="form-select" aria-label="Default select example">
-                        <option value="" selected>Seleccione</option>
-                        <option th:value="1">1</option>
-                        <option th:value="2">2</option>
-                        <option th:value="3">3</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <label for="descuento" class="col-sm-6 col-form-label">Descuento</label>
-                <div class="col-sm-8">
-                    <input type="number" th:field="*{items[0].discount_rate}" id="descuento" class="form-control"/>
-                    <small th:if="${#fields.hasErrors('items[0].discount_rate')}" th:errors="*{items[0].discount_rate}"
-                           class="form-text text-danger"></small>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <label for="precio" class="col-sm-6 col-form-label">Precio</label>
-                <div class="col-sm-8">
-                    <input type="number" th:field="*{items[0].price}" id="precio" class="form-control"/>
-                    <small th:if="${#fields.hasErrors('items[0].price')}" th:errors="*{items[0].price}"
-                           class="form-text text-danger"></small>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <label class="col-sm-6 col-form-label">Impuesto %</label>
-                <div class="col-sm-8">
-                    <select th:field="*{items[0].tax_rate}" class="form-select" aria-label="Default select example">
-                        <option value="" selected>Seleccione</option>
-                        <option value="19">19 %</option>
-                        <option value="5">5 %</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <label class="col-sm-6 col-form-label">Medida Item</label>
-                <div class="col-sm-8">
-                    <select th:field="*{items[0].unit_measure_id}" class="form-select"
-                            aria-label="Default select example">
-                        <option value="" selected>Seleccione</option>
-                        <option value="70">Unidad</option>
-                        <option value="414">Kilogramo</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <label class="col-sm-6 col-form-label">Estándar</label>
-                <div class="col-sm-8">
-                    <select th:field="*{items[0].standard_code_id}" class="form-select"
-                            aria-label="Default select example">
-                        <option value="" selected>Seleccione</option>
-                        <option value="1">Estándar de adopción del contribuyente</option>
-                        <option value="2">UNSPSC</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <label class="col-sm-6 col-form-label">Excluido de IVA</label>
-                <div class="col-sm-8">
-                    <select th:field="*{items[0].is_excluded}" class="form-select" aria-label="Default select example">
-                        <option value="" selected>Seleccione</option>
-                        <option value="1">SI</option>
-                        <option value="0">NO</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <label class="col-sm-6 col-form-label">Retención</label>
-                <div class="col-sm-8">
-                    <select th:field="*{items[0].tribute_id}" class="form-select" aria-label="Default select example">
-                        <option value="" selected>Seleccione</option>
-                        <option value="1">IVA - Impuesto sobre la Ventas</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <label class="col-sm-6 col-form-label">Verificar informacion de la facturacion</label>
-                <div class="col-sm-8">
-                    <input type="submit" value="Agregar" class="form-control"/>
-                </div>
-            </div>
-        </div>
-
-        <hr class="my-4">
-        <h4>Artículos a facturar</h4>
-        <hr class="my-4">
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-            </tbody>
-        </table>
+            <hr class="my-4">
+            <h4>Artículos a facturar</h4>
+            <hr class="my-4">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+                </tbody>
+            </table>
     </form>
 </div>
 </body>
